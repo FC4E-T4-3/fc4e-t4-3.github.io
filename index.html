@@ -42,20 +42,16 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href=".">Get Started</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
+    <li class="toctree-l2"><a class="reference internal" href="#typeapi">TypeAPI</a>
     </li>
     </ul>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="typeapi/">TypeAPI</a>
-                </li>
-              </ul>
               <p class="caption"><span class="caption-text">Schemas</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="schemas/basictype/">BasicType</a>
+                  <li class="toctree-l1"><a class="reference internal" href="schemas/Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="schemas/basictype/">BasicInfoType</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="schemas/infotype/">InfoType</a>
                   </li>
@@ -88,25 +84,15 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="get-started">Get Started</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+<p>Welcome to the documentation of the data type registry developed in the scope of the FAIRCORE4EOSC project. The Typeregistry is based on the <a href="https://www.cordra.org/">Cordra</a> software developed by CNRI. Cordra is a software to manage digital objects and equip them with a persistent identifier. These digital objects are represented as JSON objects based on some previously defined JSON schema. In this typeregistry, some schemas are provided to cover many use cases. For more information on the provided schemas, refer to later pages in this documentation. Created types are equipped with a handle PID for unambigous identification of data types. Types can be created via the user interface or an API. For this, Cordra offers a REST API and a DOIP API for HTTP Clients. Documentation for these API's can be found under the <code>Documentation</code> tab on the navigation bar.</p>
+<p>To get started creating types, an account is necessary. As for now, no login via some external AAI provider is integrated in the typeregistry. Rather, a request has to be send for the admin to create an account for you. To request an account, please send a mail to <a href="mailto:support@pidconsortium.net">support@pidconsortium.net</a>. Should you just want to experiment with the provided schemas, we also offer the <a href="https://dtr-playground.pidconsortium.eu">DTR-Playground</a>. Here, the same interface with the same schemas is provided, but no persistent identifiers are generated for the data types and a user account is not required for the type creation. </p>
+<h2 id="typeapi">TypeAPI</h2>
+<p>The <a href="http://typeapi.lab.pidconsortium.net">TypeAPI</a> is an additional service that is provided as part of the DTR component. Here, further functionalities are supplemented to types of the provided schemas to increase their effective use. These additional functionalities include the generation of validation schemas for types that qualify, filtering of types based on the measurement unit they use or which taxonomy node they are assigned to, and a federated search over mutltiple registries. These additional regisitries currently include the <a href="https://dtr-test.pidconsortium.net">DTR-Test</a> and the <a href="https://dtr-pit.pidconsortium.net">DTR-PIT</a> by the pidconsortium.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="typeapi/" class="btn btn-neutral float-right" title="TypeAPI">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="schemas/Overview/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -130,7 +116,7 @@ docs/
     
     
     
-      <span><a href="typeapi/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="schemas/Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
@@ -150,5 +136,5 @@ docs/
 
 <!--
 MkDocs version : 1.5.3
-Build Date UTC : 2023-11-30 19:57:30.036234+00:00
+Build Date UTC : 2023-12-06 11:59:03.134671+00:00
 -->
