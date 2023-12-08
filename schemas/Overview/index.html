@@ -82,12 +82,166 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="overview">Overview</h1>
+                <ul>
+<li>
+<p><b id="#/properties/name">name</b></p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>
+<h3 id="type-name">Type Name</h3>
+</li>
+<li><em>please use printable ascii characters without blank</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/name">path: #/properties/name</i></li>
+<li>The value must match this pattern: <code>^([!-~])+$</code></li>
+<li>Length:  &le; 256</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/description">description</b></p>
+<ul>
+<li>
+<h3 id="description">Description</h3>
+</li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/description">path: #/properties/description</i></li>
+<li>The value must match this pattern: <code>(.|
+)*</code></li>
+<li>Length:  &le; 8192</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/versioning">versioning</b></p>
+<ul>
+<li>
+<h3 id="versioning">Versioning</h3>
+</li>
+<li>Type: <code>object</code></li>
+<li><i id="/properties/versioning">path: #/properties/versioning</i></li>
+<li><strong><em>Properties</em></strong><ul>
+<li><b id="#/properties/versioning/properties/version">version</b><ul>
+<li>
+<h5 id="version">Version</h5>
+</li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/versioning/properties/version">path: #/properties/versioning/properties/version</i></li>
+</ul>
+</li>
+<li><b id="#/properties/versioning/properties/previousVersion">previousVersion</b><ul>
+<li>
+<h5 id="previous-version">Previous Version</h5>
+</li>
+<li><i id="/properties/versioning/properties/previousVersion">path: #/properties/versioning/properties/previousVersion</i></li>
+</ul>
+</li>
+<li><b id="#/properties/versioning/properties/nextVersion">nextVersion</b><ul>
+<li>
+<h5 id="next-version">Next Version</h5>
+</li>
+<li><i id="/properties/versioning/properties/nextVersion">path: #/properties/versioning/properties/nextVersion</i></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/provenance">provenance</b></p>
+<ul>
+<li>
+<h3 id="provenance">Provenance</h3>
+</li>
+<li>Type: <code>object</code></li>
+<li><i id="/properties/provenance">path: #/properties/provenance</i></li>
+<li><strong><em>Properties</em></strong><ul>
+<li><b id="#/properties/provenance/properties/contributors">contributors</b><ul>
+<li>
+<h5 id="contributors">Contributors</h5>
+</li>
+<li>Type: <code>array</code></li>
+<li><i id="/properties/provenance/properties/contributors">path: #/properties/provenance/properties/contributors</i><ul>
+<li><strong><em>Items</em></strong></li>
+<li>
+<h5 id="contributor">Contributor</h5>
+</li>
+<li>Type: <code>object</code></li>
+<li><i id="/properties/provenance/properties/contributors/items">path: #/properties/provenance/properties/contributors/items</i></li>
+<li><strong><em>Properties</em></strong><ul>
+<li><b id="#/properties/provenance/properties/contributors/items/properties/Name">Name</b><ul>
+<li>
+<h5 id="name">Name</h5>
+</li>
+<li><em>Full name of the contributor</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/provenance/properties/contributors/items/properties/Name">path: #/properties/provenance/properties/contributors/items/properties/Name</i></li>
+</ul>
+</li>
+<li><b id="#/properties/provenance/properties/contributors/items/properties/ORCID">ORCID</b><ul>
+<li>
+<h5 id="orcid">ORCID</h5>
+</li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/provenance/properties/contributors/items/properties/ORCID">path: #/properties/provenance/properties/contributors/items/properties/ORCID</i></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b id="#/properties/provenance/properties/creationDate">creationDate</b><ul>
+<li>
+<h5 id="creation-date">Creation Date</h5>
+</li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/provenance/properties/creationDate">path: #/properties/provenance/properties/creationDate</i></li>
+<li>String format must be a "datetime"</li>
+</ul>
+</li>
+<li><b id="#/properties/provenance/properties/lastModificationDate">lastModificationDate</b><ul>
+<li>
+<h5 id="last-modification-date">Last Modification Date</h5>
+</li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/provenance/properties/lastModificationDate">path: #/properties/provenance/properties/lastModificationDate</i></li>
+<li>String format must be a "datetime"</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/ExpectedUse">ExpectedUse</b></p>
+<ul>
+<li>
+<h3 id="expected-use">Expected Use</h3>
+</li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/ExpectedUse">path: #/properties/ExpectedUse</i></li>
+<li>String format must be a "textarea"</li>
+<li>Length:  &le; 1024</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/Aliases">Aliases</b></p>
+<ul>
+<li>
+<h3 id="aliases">Aliases</h3>
+</li>
+<li><em>Provide a list of aliases as alternatives to the chosen name.</em></li>
+<li>Type: <code>array</code></li>
+<li><i id="/properties/Aliases">path: #/properties/Aliases</i><ul>
+<li><strong><em>Items</em></strong></li>
+<li>
+<h4 id="alias">Alias</h4>
+</li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/Aliases/items">path: #/properties/Aliases/items</i></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
               
             </div>
