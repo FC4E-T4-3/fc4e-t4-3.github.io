@@ -1,6 +1,51 @@
-# MeasurementUnit
+# Measurement Unit
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Schema
+- <b id="#/properties/Taxonomies">Taxonomies</b>
+	 - _Taxonomy nodes that this type should be assigned to._
+	 - Type: `array`
+	 - <i id="/properties/Taxonomies">path: #/properties/Taxonomies</i>
+		 - **_Items_**
+		 - <i id="/properties/Taxonomies/items">path: #/properties/Taxonomies/items</i>
+
+- <b id="#/properties/unitDescription">unitDescription</b>
+	 - Type: `object`
+	 - <i id="/properties/unitDescription">path: #/properties/unitDescription</i>
+	 - **_Properties_**
+		 - <b id="#/properties/unitDescription/properties/Name">Name</b>
+			 - _Name of the Unit_
+			 - Type: `string`
+			 - <i id="/properties/unitDescription/properties/Name">path: #/properties/unitDescription/properties/Name</i>
+		 - <b id="#/properties/unitDescription/properties/Symbol">Symbol</b>
+			 - _Symbol to describe the unit. A prefix symbol attached to a unit symbol (e.g. 'km', 'cm') constitutes a new inseparable unit symbol._
+			 - Type: `string`
+			 - <i id="/properties/unitDescription/properties/Symbol">path: #/properties/unitDescription/properties/Symbol</i>
+		 - <b id="#/properties/unitDescription/properties/Quantity">Quantity</b>
+			 - _The physical quanitity measured using the unit._
+			 - Type: `string`
+			 - <i id="/properties/unitDescription/properties/Quantity">path: #/properties/unitDescription/properties/Quantity</i>
+		 - <b id="#/properties/unitDescription/properties/Dimension Symbol">Dimension Symbol</b>
+			 - _The dimensional symbol used for the physical quantity._
+			 - Type: `string`
+			 - <i id="/properties/unitDescription/properties/Dimension Symbol">path: #/properties/unitDescription/properties/Dimension Symbol</i>
+		 - <b id="#/properties/unitDescription/properties/TypicalSymbols">TypicalSymbols</b>
+			 - _Other typical symbols to describe the measured quantity._
+			 - Type: `array`
+			 - <i id="/properties/unitDescription/properties/TypicalSymbols">path: #/properties/unitDescription/properties/TypicalSymbols</i>
+				 - **_Items_**
+				 - Type: `string`
+				 - <i id="/properties/unitDescription/properties/TypicalSymbols/items">path: #/properties/unitDescription/properties/TypicalSymbols/items</i>
+		 - <b id="#/properties/unitDescription/properties/Context">Context</b>
+			 - _Context where this unit is measured or used._
+			 - Type: `string`
+			 - <i id="/properties/unitDescription/properties/Context">path: #/properties/unitDescription/properties/Context</i>
+		 - <b id="#/properties/unitDescription/properties/Definition">Definition</b>
+			 - _A short definition of the unit._
+			 - Type: `string`
+			 - <i id="/properties/unitDescription/properties/Definition">path: #/properties/unitDescription/properties/Definition</i>
+			 - String format must be a "textarea"
+		 - <b id="#/properties/unitDescription/properties/Usage">Usage</b>
+			 - _How the unit is used in research._
+			 - Type: `string`
+			 - <i id="/properties/unitDescription/properties/Usage">path: #/properties/unitDescription/properties/Usage</i>
+			 - String format must be a "textarea"

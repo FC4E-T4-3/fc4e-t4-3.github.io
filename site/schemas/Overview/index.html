@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Overview - Typeregistry Documentation</title>
+    <title>Schemas Overview - Typeregistry Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Overview";
+        var mkdocs_page_name = "Schemas Overview";
         var mkdocs_page_input_path = "schemas/Overview.md";
         var mkdocs_page_url = null;
       </script>
@@ -45,15 +45,17 @@
               </ul>
               <p class="caption"><span class="caption-text">Schemas</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Schemas Overview</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#general-schema">General Schema</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../basictype/">BasicInfoType</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../infotype/">InfoType</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../measurementunit/">MeasurementUnit</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../measurementunit/">Measurement Unit</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../taxonomynode/">TaxonomyNode</a>
                   </li>
@@ -73,7 +75,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Schemas</li>
-      <li class="breadcrumb-item active">Overview</li>
+      <li class="breadcrumb-item active">Schemas Overview</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -82,12 +84,119 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="overview">Overview</h1>
+                <h1 id="schemas-overview">Schemas Overview</h1>
+<h2 id="general-schema">General Schema</h2>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>
+<p><b id="#/properties/name">name</b></p>
+<ul>
+<li><em>please use printable ascii characters without blank</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/name">path: #/properties/name</i></li>
+<li>The value must match this pattern: <code>^([!-~])+$</code></li>
+<li>Length:  &le; 256</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/description">description</b></p>
+<ul>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/description">path: #/properties/description</i></li>
+<li>The value must match this pattern: <code>(.|)*</code></li>
+<li>Length:  &le; 8192</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/versioning">versioning</b></p>
+<ul>
+<li>Type: <code>object</code></li>
+<li><i id="/properties/versioning">path: #/properties/versioning</i></li>
+<li><strong><em>Properties</em></strong><ul>
+<li><b id="#/properties/versioning/properties/version">version</b><ul>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/versioning/properties/version">path: #/properties/versioning/properties/version</i></li>
+</ul>
+</li>
+<li><b id="#/properties/versioning/properties/previousVersion">previousVersion</b><ul>
+<li><i id="/properties/versioning/properties/previousVersion">path: #/properties/versioning/properties/previousVersion</i></li>
+</ul>
+</li>
+<li><b id="#/properties/versioning/properties/nextVersion">nextVersion</b><ul>
+<li><i id="/properties/versioning/properties/nextVersion">path: #/properties/versioning/properties/nextVersion</i></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/provenance">provenance</b></p>
+<ul>
+<li>Type: <code>object</code></li>
+<li><i id="/properties/provenance">path: #/properties/provenance</i></li>
+<li><strong><em>Properties</em></strong><ul>
+<li><b id="#/properties/provenance/properties/contributors">contributors</b><ul>
+<li>Type: <code>array</code></li>
+<li><i id="/properties/provenance/properties/contributors">path: #/properties/provenance/properties/contributors</i><ul>
+<li><strong><em>Items</em></strong></li>
+<li>Type: <code>object</code></li>
+<li><i id="/properties/provenance/properties/contributors/items">path: #/properties/provenance/properties/contributors/items</i></li>
+<li><strong><em>Properties</em></strong><ul>
+<li><b id="#/properties/provenance/properties/contributors/items/properties/Name">Name</b><ul>
+<li><em>Full name of the contributor</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/provenance/properties/contributors/items/properties/Name">path: #/properties/provenance/properties/contributors/items/properties/Name</i></li>
+</ul>
+</li>
+<li><b id="#/properties/provenance/properties/contributors/items/properties/ORCID">ORCID</b><ul>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/provenance/properties/contributors/items/properties/ORCID">path: #/properties/provenance/properties/contributors/items/properties/ORCID</i></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b id="#/properties/provenance/properties/creationDate">creationDate</b><ul>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/provenance/properties/creationDate">path: #/properties/provenance/properties/creationDate</i></li>
+<li>String format must be a "datetime"</li>
+</ul>
+</li>
+<li><b id="#/properties/provenance/properties/lastModificationDate">lastModificationDate</b><ul>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/provenance/properties/lastModificationDate">path: #/properties/provenance/properties/lastModificationDate</i></li>
+<li>String format must be a "datetime"</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/ExpectedUse">ExpectedUse</b></p>
+<ul>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/ExpectedUse">path: #/properties/ExpectedUse</i></li>
+<li>String format must be a "textarea"</li>
+<li>Length:  &le; 1024</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/Aliases">Aliases</b></p>
+<ul>
+<li><em>Provide a list of aliases as alternatives to the chosen name.</em></li>
+<li>Type: <code>array</code></li>
+<li><i id="/properties/Aliases">path: #/properties/Aliases</i><ul>
+<li><strong><em>Items</em></strong></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/Aliases/items">path: #/properties/Aliases/items</i></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
               
             </div>
