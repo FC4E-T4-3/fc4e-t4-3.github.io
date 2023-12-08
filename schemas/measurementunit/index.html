@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>MeasurementUnit - Typeregistry Documentation</title>
+    <title>Measurement Unit - Typeregistry Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "MeasurementUnit";
+        var mkdocs_page_name = "Measurement Unit";
         var mkdocs_page_input_path = "schemas/measurementunit.md";
         var mkdocs_page_url = null;
       </script>
@@ -45,14 +45,16 @@
               </ul>
               <p class="caption"><span class="caption-text">Schemas</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../Overview/">Overview</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Overview/">Schemas Overview</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../basictype/">BasicInfoType</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../infotype/">InfoType</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">MeasurementUnit</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Measurement Unit</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#schema">Schema</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../taxonomynode/">TaxonomyNode</a>
@@ -73,7 +75,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Schemas</li>
-      <li class="breadcrumb-item active">MeasurementUnit</li>
+      <li class="breadcrumb-item active">Measurement Unit</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -82,12 +84,86 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="measurementunit">MeasurementUnit</h1>
+                <h1 id="measurement-unit">Measurement Unit</h1>
+<h2 id="schema">Schema</h2>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>
+<p><b id="#/properties/Taxonomies">Taxonomies</b></p>
+<ul>
+<li><em>Taxonomy nodes that this type should be assigned to.</em></li>
+<li>Type: <code>array</code></li>
+<li><i id="/properties/Taxonomies">path: #/properties/Taxonomies</i><ul>
+<li><strong><em>Items</em></strong></li>
+<li><i id="/properties/Taxonomies/items">path: #/properties/Taxonomies/items</i></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/unitDescription">unitDescription</b></p>
+<ul>
+<li>Type: <code>object</code></li>
+<li><i id="/properties/unitDescription">path: #/properties/unitDescription</i></li>
+<li><strong><em>Properties</em></strong><ul>
+<li><b id="#/properties/unitDescription/properties/Name">Name</b><ul>
+<li><em>Name of the Unit</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/unitDescription/properties/Name">path: #/properties/unitDescription/properties/Name</i></li>
+</ul>
+</li>
+<li><b id="#/properties/unitDescription/properties/Symbol">Symbol</b><ul>
+<li><em>Symbol to describe the unit. A prefix symbol attached to a unit symbol (e.g. 'km', 'cm') constitutes a new inseparable unit symbol.</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/unitDescription/properties/Symbol">path: #/properties/unitDescription/properties/Symbol</i></li>
+</ul>
+</li>
+<li><b id="#/properties/unitDescription/properties/Quantity">Quantity</b><ul>
+<li><em>The physical quanitity measured using the unit.</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/unitDescription/properties/Quantity">path: #/properties/unitDescription/properties/Quantity</i></li>
+</ul>
+</li>
+<li><b id="#/properties/unitDescription/properties/Dimension Symbol">Dimension Symbol</b><ul>
+<li><em>The dimensional symbol used for the physical quantity.</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/unitDescription/properties/Dimension Symbol">path: #/properties/unitDescription/properties/Dimension Symbol</i></li>
+</ul>
+</li>
+<li><b id="#/properties/unitDescription/properties/TypicalSymbols">TypicalSymbols</b><ul>
+<li><em>Other typical symbols to describe the measured quantity.</em></li>
+<li>Type: <code>array</code></li>
+<li><i id="/properties/unitDescription/properties/TypicalSymbols">path: #/properties/unitDescription/properties/TypicalSymbols</i><ul>
+<li><strong><em>Items</em></strong></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/unitDescription/properties/TypicalSymbols/items">path: #/properties/unitDescription/properties/TypicalSymbols/items</i></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b id="#/properties/unitDescription/properties/Context">Context</b><ul>
+<li><em>Context where this unit is measured or used.</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/unitDescription/properties/Context">path: #/properties/unitDescription/properties/Context</i></li>
+</ul>
+</li>
+<li><b id="#/properties/unitDescription/properties/Definition">Definition</b><ul>
+<li><em>A short definition of the unit.</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/unitDescription/properties/Definition">path: #/properties/unitDescription/properties/Definition</i></li>
+<li>String format must be a "textarea"</li>
+</ul>
+</li>
+<li><b id="#/properties/unitDescription/properties/Usage">Usage</b><ul>
+<li><em>How the unit is used in research.</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/unitDescription/properties/Usage">path: #/properties/unitDescription/properties/Usage</i></li>
+<li>String format must be a "textarea"</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
               
             </div>
