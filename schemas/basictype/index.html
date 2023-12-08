@@ -49,6 +49,8 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">BasicInfoType</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#schema">Schema</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../infotype/">InfoType</a>
@@ -83,11 +85,76 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="basicinfotype">BasicInfoType</h1>
+<h2 id="schema">Schema</h2>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><b id="#/properties/MeasuredUnits">MeasuredUnits</b><ul>
+<li><em>Units that are measured using this type.</em></li>
+<li>Type: <code>array</code></li>
+<li><i id="/properties/MeasuredUnits">path: #/properties/MeasuredUnits</i><ul>
+<li><strong><em>Items</em></strong></li>
+<li><i id="/properties/MeasuredUnits/items">path: #/properties/MeasuredUnits/items</i></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/Taxonomies">Taxonomies</b></p>
+<ul>
+<li><em>Taxonomy nodes that this type should be assigned to.</em></li>
+<li>Type: <code>array</code></li>
+<li><i id="/properties/Taxonomies">path: #/properties/Taxonomies</i><ul>
+<li><strong><em>Items</em></strong></li>
+<li><i id="/properties/Taxonomies/items">path: #/properties/Taxonomies/items</i></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><b id="#/properties/Schema">Schema</b></p>
+<ul>
+<li><em>Select the fundamental datatype this type should represent. "Number" can be further differentiated into integer and float.</em></li>
+<li>Type: <code>object</code></li>
+<li><i id="/properties/Schema">path: #/properties/Schema</i></li>
+<li><strong><em>Properties</em></strong></li>
+<li>The properties of the schema branch here into different directions based on the desired fundamental datatype. For each fundamental type, different restrictions are valid and internal validation is conducted accordingly. We now list the possibilities for each datatype.</li>
+<li><strong><em>AnyOf</em></strong>:<ul>
+<li><b id="#/properties/Test/properties/Type">Type</b> <code>required</code><ul>
+<li><em>For type "Number", further differentiate between integer and float.</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/Test/properties/Type">path: #/properties/Test/properties/Type</i></li>
+<li>The value is restricted to the following: <ol>
+<li><em>"String"</em></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><b id="#/properties/Test/properties/PropRelations">PropRelations</b><ul>
+<li><em>Properties are chained by boolean operators. By default, through the AND operator all properties must apply. OR or XOR operators for properties are also possible.</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/Test/properties/PropRelations">path: #/properties/Test/properties/PropRelations</i></li>
+<li>The value is restricted to the following: <ol>
+<li><em>"AND"</em></li>
+<li><em>"OR"</em></li>
+<li><em>"XOR"</em></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><b id="#/properties/Test/properties/Properties">Properties</b><ul>
+<li>Type: <code>array</code></li>
+<li><i id="/properties/Test/properties/Properties">path: #/properties/Test/properties/Properties</i><ul>
+<li><strong><em>Items</em></strong></li>
+<li>Type: <code>object</code></li>
+<li><i id="/properties/Test/properties/Properties/items">path: #/properties/Test/properties/Properties/items</i></li>
+<li><strong><em>Properties</em></strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
               
             </div>
