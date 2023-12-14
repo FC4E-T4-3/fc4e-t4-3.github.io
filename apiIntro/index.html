@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>apiIntro - Typeregistry Documentation</title>
+    <title>API Introduction - Typeregistry Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "apiIntro";
+        var mkdocs_page_name = "API Introduction";
         var mkdocs_page_input_path = "apiIntro.md";
         var mkdocs_page_url = null;
       </script>
@@ -44,7 +44,9 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">apiIntro</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">API Introduction</a>
+    <ul class="current">
+    </ul>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Schemas</span></p>
@@ -74,7 +76,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">apiIntro</li>
+      <li class="breadcrumb-item active">API Introduction</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -83,7 +85,71 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="api-introduction">API Introduction</h1>
+<p>For the work with the typeregistry, the use of API's is an important feature to handle larger datasets or if you just have no need for the user interface. To begin, an account is necessary for most operations. Once you have an account, you can generate an access token using the following command:</p>
+<pre><code>curl --request POST \
+  --url 'http://typeregistry.lab.pidconsortium.net/auth/token' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  &quot;grant_type&quot;: &quot;password&quot;,
+  &quot;username&quot;: &quot;&quot;,
+  &quot;password&quot;: &quot;&quot;
+}'
+</code></pre>
+<p>Enter your username and password in the designated fields. The token can be retrieved from the <code>access_token</code> field in the response. This token will stay active during your session and can be used for multiple requests.</p>
+<p>The retrieve command is one of the simplest ones and just requires the URL of the object you want to retrieve. Note that a <code>#</code> in front of <code>objects</code> in the URL would direct you to the UI version of the type.</p>
+<pre><code>curl --request GET \
+  --url 'http://typeregistry.lab.pidconsortium.net/objects/21.T11969/a41d30cdc6206b5a6fdd' \
+  --header 'Content-Type: application/json' 
+</code></pre>
+<p>Some types are only visible for authorized users. For those types we will use the generated token to authenticate ourselves. This will be done in an <code>'Authorization'</code> Header field, where <code>TOKEN</code> is the access token you generated for your account.</p>
+<pre><code>curl --request GET \
+  --url 'http://typeregistry.lab.pidconsortium.net/objects/21.T11969/0ea269895eceaf41f7d2' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer TOKEN'
+</code></pre>
+<p>Another important use of the API involves the creation of types via the API. This is helpful for larger batches of data or if you do not wish to work via the UI. Since Cordra stores types as JSON objects, we have to create JSON Objects based on the schemas provided. For more information on the schemas please refer to the respective sections in the documentations or view them directly under <code>Types</code> in the navigation bar. If you create a type via the API ist must be valid for the desired schema. An example for a type that is a valid <code>BasicInfoType</code> can be for example the following. Note that no field for <code>id</code> is given in the JSON object. This will be automatically filled and is part of the response.</p>
+<pre><code>{
+    &quot;name&quot;: &quot;TestType&quot;,
+    &quot;provenance&quot;: {
+      &quot;contributors&quot;: [
+        {
+          &quot;Name&quot;: &quot;Type Typerman&quot;
+        }
+      ],
+      &quot;creationDate&quot;: &quot;&quot;,
+      &quot;lastModificationDate&quot;: &quot;&quot;
+    },
+    &quot;ExpectedUse&quot;: &quot;Will demonstrate API&quot;,
+    &quot;Aliases&quot;: [
+      &quot;TestFile&quot;
+    ],
+    &quot;MeasuredUnits&quot;: [
+      &quot;21.T11969/a41d30cdc6206b5a6fdd&quot;
+    ],
+    &quot;Schema&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Properties&quot;: [
+        {
+          &quot;Property&quot;: &quot;minLength&quot;,
+          &quot;Value&quot;: 0
+        },
+        {
+          &quot;Property&quot;: &quot;maxLength&quot;,
+          &quot;Value&quot;: 10
+        }
+      ]
+    }
+  }
+</code></pre>
+<p>Consider this object saved on your disk as <code>testType.json</code>. To now create a type with that content consider the following command:</p>
+<pre><code>curl --request POST \
+  --url 'http://typeregistry.lab.pidconsortium.net/objects/?type=BasicInfoType' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer TOKEN' \
+  --data @&quot;testType.json&quot;
+</code></pre>
+<p>Note that we need to authenticate the same way as before. The JSON object representing the type is simply passed as the content of the <code>POST</code> request. Of course it would also be possible to copy the actual JSON into the <code>--data</code> field, but referencing the file is a simpler way.  </p>
               
             </div>
           </div><footer>
