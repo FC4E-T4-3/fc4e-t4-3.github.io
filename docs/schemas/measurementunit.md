@@ -1,6 +1,7 @@
 # Measurement Unit
-
+This schema describes measurement units. A `MeasurementUnit` can be used just as themselves or be assigned to BasicInfoTypes to create a better defined type.
 ## Schema
+ - _All fields from the General Schema are included_ 
 - <b id="#/properties/Taxonomies">Taxonomies</b>
 	 - _Taxonomy nodes that this type should be assigned to._
 	 - Type: `array`

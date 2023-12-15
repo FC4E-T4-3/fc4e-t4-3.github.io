@@ -43,6 +43,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Get Started</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../apiIntro/">Cordra API Introduction</a>
+                </li>
+              </ul>
               <p class="caption"><span class="caption-text">Schemas</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../Overview/">Schemas Overview</a>
@@ -50,6 +54,10 @@
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">BasicInfoType</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#schema">Schema</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#enum-element">Enum Element</a>
+    </li>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -85,8 +93,10 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="basicinfotype">BasicInfoType</h1>
+<p>The BasicInfoType is used to represent any datatype that is some form of a fundamental type, namely strings, numbers, booleans. When restrictions are properly filled, a validation schema can be generated for each BasicInfoType. </p>
 <h2 id="schema">Schema</h2>
 <ul>
+<li><em>All fields from the General Schema are included</em> </li>
 <li><b id="#/properties/MeasuredUnits">MeasuredUnits</b><ul>
 <li><em>Units that are measured using this type.</em></li>
 <li>Type: <code>array</code></li>
@@ -116,14 +126,18 @@
 <li>Type: <code>object</code></li>
 <li><i id="/properties/Schema">path: #/properties/Schema</i></li>
 <li><strong><em>Properties</em></strong></li>
-<li>The properties of the schema branch here into different directions based on the desired fundamental datatype. For each fundamental type, different restrictions are valid and internal validation is conducted accordingly. We now list the possibilities for each datatype.</li>
-<li><strong><em>AnyOf</em></strong>:<ul>
+<li>The properties of the schema branch here into different directions based on the desired fundamental datatype. For each fundamental type, different restrictions are valid and internal validation is conducted accordingly. We now list the possibilities for each datatype.<ul>
 <li><b id="#/properties/Test/properties/Type">Type</b> <code>required</code><ul>
 <li><em>For type "Number", further differentiate between integer and float.</em></li>
 <li>Type: <code>string</code></li>
 <li><i id="/properties/Test/properties/Type">path: #/properties/Test/properties/Type</i></li>
 <li>The value is restricted to the following: <ol>
 <li><em>"String"</em></li>
+<li><em>"Integer"</em></li>
+<li><em>"Number"</em></li>
+<li><em>"Boolean"</em></li>
+<li><em>"Enum"</em></li>
+<li><em>"None"</em></li>
 </ol>
 </li>
 </ul>
@@ -141,13 +155,53 @@
 </ul>
 </li>
 <li><b id="#/properties/Test/properties/Properties">Properties</b><ul>
-<li>Type: <code>array</code></li>
-<li><i id="/properties/Test/properties/Properties">path: #/properties/Test/properties/Properties</i><ul>
+<li>Type: <code>array/string</code></li>
+<li><i id="/properties/Test/properties/Properties">path: #/properties/Test/properties/Properties</i></li>
+<li><em>The allowed values in the properties field depend on the desired fundamental type. Strings, Integers and Numbers have an array like described in the <code>items</code> field below. Note that when using field names described by the json-schema definition (i.e. minLength, maxLength...) the values are validated internally to avoid issues on the schema creation.</em><ul>
 <li><strong><em>Items</em></strong></li>
 <li>Type: <code>object</code></li>
 <li><i id="/properties/Test/properties/Properties/items">path: #/properties/Test/properties/Properties/items</i></li>
-<li><strong><em>Properties</em></strong></li>
+<li><strong><em>Properties</em></strong><ul>
+<li><b id="#/properties/Property">Property</b><ul>
+<li>Type: <code>string</code></li>
+<li><i id="/properties/Property">path: #/properties/Property</i></li>
 </ul>
+</li>
+</ul>
+</li>
+<li><b id="#/properties/Value">Value</b>
+         - Type: <code>string</code>
+         - <i id="/properties/Value">path: #/properties/Value</i></li>
+</ul>
+</li>
+<li><em>If the selected Type is  <code>boolean</code>, the <code>Properties</code> field is only one optional string, which may take one of the following two values.</em></li>
+<li>
+<p>Type: <code>string</code></p>
+<ol>
+<li><em>"Always True"</em></li>
+<li>
+<p><em>"Always False"</em></p>
+</li>
+<li>
+<p>Type: <code>string</code></p>
+</li>
+<li><i id="/properties/Property">path: #/properties/Property</i></li>
+<li>The value is restricted to the following: <ol>
+<li><em>"Integer Enum"</em>
+        - <b id="#/properties/Value">Value</b></li>
+</ol>
+</li>
+<li>Type: <code>array</code></li>
+<li><i id="/properties/Value">path: #/properties/Value</i><ul>
+<li><strong><em>Items</em></strong></li>
+<li>
+<h4 id="enum-element">Enum Element</h4>
+</li>
+<li>Type: <code>integer</code></li>
+<li><i id="/properties/Value/items">path: #/properties/Value/items</i></li>
+</ul>
+</li>
+</ol>
 </li>
 </ul>
 </li>

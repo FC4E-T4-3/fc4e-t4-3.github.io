@@ -43,6 +43,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Get Started</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../apiIntro/">Cordra API Introduction</a>
+                </li>
+              </ul>
               <p class="caption"><span class="caption-text">Schemas</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../Overview/">Schemas Overview</a>
@@ -51,6 +55,8 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">InfoType</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#schema">Schema</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../measurementunit/">Measurement Unit</a>
@@ -83,11 +89,21 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="infotype">InfoType</h1>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+<p>InfoTypes describe composite objects, containing one or multiple BasicInfoTypes or InfoTypes. InfoTypes can either be <code>objects</code>, meaning they are composed of multiple different other types, or they can represent an <code>array</code>, so a well defined collection of multiple instances of the same type. </p>
+<h2 id="schema">Schema</h2>
+<ul>
+<li><em>All fields from the General Schema are included</em> </li>
+<li><b id="#/properties/Taxonomies">Taxonomies</b><ul>
+<li><em>Taxonomy nodes that this type should be assigned to.</em></li>
+<li>Type: <code>array</code></li>
+<li><i id="/properties/Taxonomies">path: #/properties/Taxonomies</i><ul>
+<li><strong><em>Items</em></strong></li>
+<li><i id="/properties/Taxonomies/items">path: #/properties/Taxonomies/items</i></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div><footer>

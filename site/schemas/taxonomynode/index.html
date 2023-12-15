@@ -43,6 +43,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Get Started</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../apiIntro/">Cordra API Introduction</a>
+                </li>
+              </ul>
               <p class="caption"><span class="caption-text">Schemas</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../Overview/">Schemas Overview</a>
@@ -85,8 +89,10 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="taxonomynode">TaxonomyNode</h1>
+<p><code>TaxonomyNodes</code> describe a hierarchical structure of vocabularies. Any other prepared schema type can assigned one or more <code>TaxonomyNodes</code>. Via the <code>TypeAPI</code>, Taxonomies can resolved and all types returned that are somewhere in the subtree of the selected <code>TaxonomyNode</code>.</p>
 <h2 id="schema">Schema</h2>
 <ul>
+<li><em>All fields from the General Schema are included</em> </li>
 <li><b id="#/properties/reference">reference</b><ul>
 <li><em>External reference to the taxonomy node.</em></li>
 <li>Type: <code>string</code></li>
