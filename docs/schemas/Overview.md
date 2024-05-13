@@ -1,5 +1,5 @@
 # Schemas Overview
-
+All schemas that are included in the Typeregistry share a common set of metadata that are used to describe the types. For an easier overview, this set of metadata is described here once and omitted from the individual definitions. 
 ## General Schema
   - <b id="#/properties/name">name</b>
 	 - _please use printable ascii characters without blank_
