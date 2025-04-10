@@ -16,11 +16,17 @@ composite of other types. It can either take the form of an `Object`, which is b
 or an `Array`, where one type can be repeated. The `Tuple` property will be implemented soon. The following table gives a quick overview over which type 
 can represent what:
 
-|BasicInfoType   |InfoType   |
-|:-:|:-:|
-| String  |Object   |
-| Number  |Array   |
-| Boolean  |Tuple   |
+
+
+<center>
+
+| BasicInfoType | InfoType |
+|---------------|----------|
+| String        | Object   |
+| Number        | Array    |
+| Boolean       | Tuple    |
+
+</center>
 
 We will start now by creating a `BasicInfoType` to descibe a single property of an existing metadata schema. 
 
