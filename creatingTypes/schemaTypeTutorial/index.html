@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Creating Schema Elements from Scratch";
-        var mkdocs_page_input_path = "Tutorials/schemaTypeTutorial.md";
+        var mkdocs_page_input_path = "creatingTypes\\schemaTypeTutorial.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -40,43 +40,40 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../..">Get Started</a>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Tutorials</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../apiIntro/">Cordra API Introduction</a>
+              <p class="caption"><span class="caption-text">Creating Data Types</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_auth/">Navigation and Authentication</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Creating Schema Elements from Scratch</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#what-are-schema-elements-in-the-dtr">What are Schema Elements in the DTR?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#creating-a-basicinfotype">Creating a BasicInfoType</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#generating-a-json-schema">Generating a JSON Schema</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#creating-an-info-type">Creating an Info Type</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#effects-of-the-different-fields-on-the-schema">Effects of the different fields on the Schema</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../types/">The Different Data Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typeCreation/">Type Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../acl/">Managing Access Control</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation/">Schema Generation and Validating Data</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Tutorials/apiIntro/">Cordra API Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../Tutorials/recreateSchema.md">Recreating an existing Schema</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Schemas</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/Overview/">Schemas Overview</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/Overview/">Overview</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/basictype/">BasicInfoType</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/basictype/">Basic Types</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/infotype/">InfoType</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/infotype/">Info Types</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/measurementunit/">Measurement Unit</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/taxonomynode/">Taxonomy Nodes</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/taxonomynode/">TaxonomyNode</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/measurementunit/">Measurement Units</a>
                   </li>
               </ul>
       </div>
@@ -93,7 +90,6 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Tutorials</li>
       <li class="breadcrumb-item active">Creating Schema Elements from Scratch</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -104,7 +100,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="creating-schema-elements-from-scratch">Creating Schema Elements from Scratch</h1>
-<p>One main application of the Data Type Registry is the creation of elements of metadata schemas. Registering metadata elements has many 
+<p>One main application of the Data Type Registry is the creation of metadata elements of schemas. Registering metadata elements has many 
 advantages. These include the unambigious identification via a PID, additional metadata information, and the possibility of reusability and
 interoperability of types. In this tutorial, we will walk through the entire creation of schema elements, starting with the fundamental 
 building blocks and ending at the generation of JSON schemas of complex data types.</p>
@@ -117,49 +113,46 @@ hand is a more complex construct. It shares the set of metadata with <code>Basic
 composite of other types. It can either take the form of an <code>Object</code>, which is basically a set of key - value pairs where the values are other types,
 or an <code>Array</code>, where one type can be repeated. The <code>Tuple</code> property will be implemented soon. The following table gives a quick overview over which type 
 can represent what:</p>
+<p><center></p>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">BasicInfoType</th>
-<th style="text-align: center;">InfoType</th>
+<th>BasicInfoType</th>
+<th>InfoType</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">String</td>
-<td style="text-align: center;">Object</td>
+<td>String</td>
+<td>Object</td>
 </tr>
 <tr>
-<td style="text-align: center;">Number</td>
-<td style="text-align: center;">Array</td>
+<td>Number</td>
+<td>Array</td>
 </tr>
 <tr>
-<td style="text-align: center;">Boolean</td>
-<td style="text-align: center;">Tuple</td>
+<td>Boolean</td>
+<td>Tuple</td>
 </tr>
 </tbody>
 </table>
+<p></center></p>
 <p>We will start now by creating a <code>BasicInfoType</code> to descibe a single property of an existing metadata schema. </p>
 <h2 id="creating-a-basicinfotype">Creating a BasicInfoType</h2>
 <p>For the creation of our <code>BasicInfoType</code> we will use an actual metadata schema as a blueprint. This hopefully helps in following along the parallels and how 
 the schema is created hierarchically in the DTR. Take a look at <a href="https://git.gesis.org/konsortswd/pid-registration-service/-/blob/main/src/main/resources/nfdi/nfdi.json?ref_type=heads">the following schema</a> from KonsortSWD, which develop infrastructure for research data for the
 social sciences in the scope of the NFDI.</p>
 <p>When untangling the <code>$ref</code> properties we see that the schema is basically an object containing just an array called <code>variables</code>, where each variable has a number of properties. To now recreate this schema in the DTR we have to start from the bottom and gradually build the schema up hierarchically. So let us zoom in on one of those
-basic properties:</p>
-<pre><code> &quot;title&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;minLength&quot;: 1, &quot;maxLength&quot;: 550}
-</code></pre>
-<p>We see that it represents the fundamental data type <code>string</code> and applies restrictions relating to the minimum and maximum length of the string. Now we want to create this property as <code>BasicInfoType</code> in the DTR. Of course this is all possible via the API, but we consider the process via the UI for now. </p>
-<p>More documentation to follow.</p>
+basic properties, the first one in the list:
+<pre class="highlight"><code> "studyDOI": {"type": "string","pattern": "[1][0][/.].*"},</code></pre>
+We see that it represents the fundamental data type <code>string</code> and applies a restriction in the form of a regular expression, just called <code>pattern</code> in JSON-Schema. Now we want to create this property as <code>BasicInfoType</code> in the DTR. Of course this is all possible via the API, but we consider the process via the UI for now. Take a look at tje []</p>
 <h3 id="generating-a-json-schema">Generating a JSON Schema</h3>
+<p>Lorem Ipsum</p>
 <h2 id="creating-an-info-type">Creating an Info Type</h2>
 <h3 id="effects-of-the-different-fields-on-the-schema">Effects of the different fields on the Schema</h3>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../apiIntro/" class="btn btn-neutral float-left" title="Cordra API Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../schemas/Overview/" class="btn btn-neutral float-right" title="Schemas Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -181,10 +174,6 @@ basic properties:</p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../apiIntro/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../../schemas/Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>The Different Data Types - Typeregistry Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "The Different Data Types";
+        var mkdocs_page_input_path = "creatingTypes\\types.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Typeregistry Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Creating Data Types</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_auth/">Navigation and Authentication</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">The Different Data Types</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#schema-elements">Schema Elements</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-info-types">Basic Info Types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#info-types">Info Types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#profiles">Profiles</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#taxonomy-nodes">Taxonomy Nodes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#measurement-units">Measurement Units</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#extended-mime-types">Extended MIME Types</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typeCreation/">Type Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../acl/">Managing Access Control</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation/">Schema Generation and Validating Data</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Tutorials/apiIntro/">Cordra API Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../Tutorials/recreateSchema.md">Recreating an existing Schema</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Schemas</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/basictype/">Basic Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/infotype/">Info Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/taxonomynode/">Taxonomy Nodes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/measurementunit/">Measurement Units</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Typeregistry Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Creating Data Types</li>
+      <li class="breadcrumb-item active">The Different Data Types</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="the-different-data-types">The Different Data Types</h1>
+<p>This page explains the purpose of the different data types that can be created in the typeregistry.</p>
+<h2 id="schema-elements">Schema Elements</h2>
+<p>One main application of the Data Type Registry is the creation of metadata elements of schemas. Registering metadata elements has many 
+advantages. These include the unambigious identification via a PID, additional metadata information, and the possibility of reusability and
+interoperability of types.</p>
+<h3 id="basic-info-types">Basic Info Types</h3>
+<p><code>BasicInfoTypes</code> can be considered the basic building blocks, or leaf nodes,  for schema elements. Each <code>BasicInfoType</code> is simply
+some fundamental data type, with additional metadata and the possibility to apply some restrictions on that type. </p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th>BasicInfoType</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+</tr>
+<tr>
+<td>Number</td>
+</tr>
+<tr>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>Enum</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<h3 id="info-types">Info Types</h3>
+<p>An <code>InfoType</code> on the other 
+hand is a more complex construct. It shares the set of metadata with <code>BasicInfoTypes</code>, but instead of a fundamental data type it represents a 
+composite of other types. It can either take the form of an <code>Object</code>, which is basically a is a collection of <code>BasicInfoTypes</code> and <code>InfoTypes</code> that are used to create a new <code>InfoType</code>, or an <code>Array</code>, where one type can be repeated. The <code>Tuple</code> property will be implemented soon.</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th>InfoType</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Object</td>
+</tr>
+<tr>
+<td>Array</td>
+</tr>
+<tr>
+<td>Tuple</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<h3 id="profiles">Profiles</h3>
+<p>Syntactically, a <code>Profile</code> is similar to an <code>InfoType</code>, but it differs semantically. A <code>Profile</code> can only be an object and represents a full schema or kernel information profile (KIP).   </p>
+<h2 id="taxonomy-nodes">Taxonomy Nodes</h2>
+<p><code>Taxonomy Nodes</code> can be used to group types together in a way that is more semantically meaningful. Each <code>Taxonomy Node</code> represents just a term with potential parent nodes. This way, <code>Taxonomy Nodes</code> can be hierarchically organized. Each other kind of data type can be assigned one or more taxonomy nodes, which can used as custom facets either in the query builder or in the Type API, where the hierarchical nature of the taxonomy nodes can be used to filter results.</p>
+<h2 id="measurement-units">Measurement Units</h2>
+<p>The DTR offers rudimentary support for measurement units. They can be registered with minimal information assigned to <code>BasicInfoTypes</code>. The DTR is not supposed to be a ground truth registry for measurement units, but they serve to enrich other types with more semantic information.</p>
+<h2 id="extended-mime-types">Extended MIME Types</h2>
+<p>In a proof of concept, the DTR includes the ability to register extended MIME types. The entire collection of <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Types from IANA</a> is included in the DTR in machine actionable format and with additional metadata enriched.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ui_auth/" class="btn btn-neutral float-left" title="Navigation and Authentication"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../typeCreation/" class="btn btn-neutral float-right" title="Type Creation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ui_auth/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../typeCreation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

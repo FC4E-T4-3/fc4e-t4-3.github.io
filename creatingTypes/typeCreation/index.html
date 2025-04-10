@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Type Creation - Typeregistry Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Type Creation";
+        var mkdocs_page_input_path = "creatingTypes\\typeCreation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Typeregistry Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Creating Data Types</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_auth/">Navigation and Authentication</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../types/">The Different Data Types</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Type Creation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#general">General</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basicinfotypes">BasicInfoTypes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#infotypes">InfoTypes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#taxonomynodes">TaxonomyNodes</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../acl/">Managing Access Control</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation/">Schema Generation and Validating Data</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Tutorials/apiIntro/">Cordra API Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../Tutorials/recreateSchema.md">Recreating an existing Schema</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Schemas</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/basictype/">Basic Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/infotype/">Info Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/taxonomynode/">Taxonomy Nodes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/measurementunit/">Measurement Units</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Typeregistry Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Creating Data Types</li>
+      <li class="breadcrumb-item active">Type Creation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="type-creation">Type Creation</h1>
+<p>Here we will walk through the process of creating a new type in the Data Type Registry. This guide focuses on the use of the UI, but the process can also be done via the API. It is helpful though to use the UI first to get an understanding of the structure of types and what is necessary to construct them.</p>
+<h2 id="general">General</h2>
+<p>While the different data types serve different purposes, they share some common features. Here we will explain how to create the most common elements of a Data Type, such as descriptive meta.</p>
+<p>After name and description, users can versionize their data types. For this, you can enter a <code>Version</code>, a <code>Previous Version</code> and a <code>Next Version</code>. The fields for previous and next version need to be PIDs referencing other <code>BasicInfoTypes</code> or <code>InfoTypes</code> registered in the DTR. You can use the UI to navigate between versions, or use the TypeAPI for further versioning features. </p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Versioning" src="../../images/versioning.png" />
+        <figcaption>Creating versions of a Data Type</figcaption>
+    </figure>
+</center></p>
+<p>The <code>Expected Use</code> field is a short description of how the type should be used. This serves mostly as a reference for the user and especially other users who look for reusable types for their own project.</p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Expected Use" src="../../images/expectedUse.png" />
+        <figcaption>How the type should be used</figcaption>
+    </figure>
+</center></p>
+<p>A list of external references can be added to the type. This can be used to link to other types in the DTR, but also to external resources that are not part of the DTR. This is can be helpful for future reference if already existing resources are being registered in the DTR or, for example, an RFC is implemented. </p>
+<p><center>
+    <figure markdown="span">
+        <img alt="References" src="../../images/refs.png" />
+        <figcaption>External References</figcaption>
+    </figure>
+</center></p>
+<p><code>Aliases</code> can be added to the type. This serves on one hand as information for other users who may know the type under a different name, and simply as tags to find the type more easily using the search features.</p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Versioning" src="../../images/alias.png" />
+        <figcaption>Aliases of a Data Type</figcaption>
+    </figure>
+</center></p>
+<p>Each type can be assigned one or many <code>TaxonomyNodes</code>. This can be used to group types together in a way that is more semantically meaningful. The Query Builder can be used to filter results based on the assigned <code>TaxonomyNodes</code>, or the TypeAPI can be used to group types hierarchically based on the hierarchical structure of the underlying taxonomy nodes.</p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Taxonomy" src="../../images/taxonomy.png" />
+        <figcaption>Custom Facets for a Type</figcaption>
+    </figure>
+</center></p>
+<h2 id="basicinfotypes">BasicInfoTypes</h2>
+<p><code>BasicInfoTypes</code> can be considered the basic building blocks, or leaf nodes,  for schema elements. Each <code>BasicInfoType</code> is simply
+some fundamental data type, with additional metadata and the possibility to apply some restrictions on that type.</p>
+<p>As additional metadata field, a <code>Measurement Unit</code> can be added to a <code>BasicInfoType</code>. This unit should also be registered in the DTR. This has no inherent functionality beyond the ability to use the unit as additional facet, but can prove helpful for future applications, for example conversions between types based on their measurement units. </p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Unit" src="../../images/unit.png" />
+        <figcaption>Measurement Units for Basic Types</figcaption>
+    </figure>
+</center></p>
+<p>The fundamental type of a <code>BasicInfoType</code> can be selected from the following list. Note here that <code>Enum</code> is an additional category. This is because an <code>enum</code> can be of mixed values and external references. </p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Type Selection" src="../../images/basicSelection.png" />
+        <figcaption>Options for Basic Types</figcaption>
+    </figure>
+</center></p>
+<p>A <code>BasicInfoType</code> can be assigned a set of properties to further restrict the fundamental type it represents. Usually, users want a set of properties to be applied to a type, but there are also some cases where properties need to be chained differently using logical operators. By default, the <code>AND</code> operator is used, but this can be changed to <code>OR</code> or <code>XOR</code> operators. Use cases for different operators are for example allowing different date formats for a type.</p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Property Relation" src="../../images/relPropsBasic.png" />
+        <figcaption>How to chain the properties.</figcaption>
+    </figure>
+</center></p>
+<p>Each property is basically a key - value pair, with the key being the name of the property and the value being the value of the property. Since the main application of schema elements is to generate JSON schemas, the keys follow the <a href="https://json-schema.org/docs/">JSON Schema specification</a>. With the <code>custom</code> keyword, addition or special properties can be added. Note that generation of valid schemas with the TypeAPI can not be guaranteed to work if custom properties are used. </p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Property Relation" src="../../images/propBasic.png" />
+        <figcaption>Example for a basic Property.</figcaption>
+    </figure>
+</center></p>
+<p>One special property is the <code>$ref</code> keyword for enums. Even though <code>$ref</code> can be in theory used to include anything into a JSON schema, we want to restrict its usage to enum references. This way, large or frequently changing lists of values can be managed outside the DTR and included using a URL. Note that the content behind the URL must be a valid JSON enum. </p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Enum Reference" src="../../images/ref.png" />
+        <figcaption>Enum Reference.</figcaption>
+    </figure>
+</center></p>
+<h2 id="infotypes">InfoTypes</h2>
+<p>InfoTypes either combine one or multiple other Types, or represent a collection of multiple instances of the same Type. This includes both other InfoTypes or BasicInfoTypes. Thus, InfoTypes can be of two types: <code>object</code> and <code>array</code>. Note that <code>Profiles</code> have no individual section here, since they share all syntactic properties with <code>InfoTypes</code>, but can only take the form of <code>objects</code>. </p>
+<p>If the type <code>object</code> is selected, subschema conditions can be applied to the resulting schema, which can also be considered boolean schema combinations. Note here a common misconception when using the <code>allOf</code> keyword: This does not describe that all of the properties in an <code>InfoType</code> must be present, but rather that all of the subschemas must be valid. So, when validating data against the schema, it must validate against each subschema individually.</p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Subschema Conditions" src="../../images/subschemaCond.png" />
+        <figcaption>Subschema Conditions.</figcaption>
+    </figure>
+</center></p>
+<p>The <code>name</code> keyword also serves as the name of the property in the JSON schema.</p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Name" src="../../images/name.png" />
+        <figcaption>Name of the property.</figcaption>
+    </figure>
+</center></p>
+<p>The <code>Title</code> and <code>Description</code> fields are mostly for use in the resulting JSON schema. If no description is provided, the description for the field in the schema will be extracted from the underlying type, if available. </p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Description and Title" src="../../images/titleAndDesc.png" />
+        <figcaption>Title and description for the JSON Schema.</figcaption>
+    </figure>
+</center></p>
+<p>A PID reference to another Data Type registered in the DTR must be given in the <code>type</code> keyword. </p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Type" src="../../images/type.png" />
+        <figcaption>Type of the property.</figcaption>
+    </figure>
+</center></p>
+<p>The optional <code>const</code> keyword can be used to add a constant value to the property. This should mostly be used if the underlying type is a <code>BasicInfoType</code>.</p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Constant" src="../../images/const.png" />
+        <figcaption>Constant value for the field.</figcaption>
+    </figure>
+</center></p>
+<p>If the <code>InfoType</code> is an object, the <code>cardinality</code> keyword can be used to specify the cardinality of the current property. If the property should be used as a simple array without special properties, the cardinality can be used to generate an array in the JSON schema. Note that cardinality <code>1</code> and cardinality <code>1 - n</code> describe mandatory elements or arrays respectively.</p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Constant" src="../../images/cardinality.png" />
+        <figcaption>Cardinality for the property.</figcaption>
+    </figure>
+</center></p>
+<p>The <code>Extract Properties</code> keyword is an advanced feature for constructing complex objects. It can only be used if the underlying type of the property is an <code>InfoType</code> or a <code>Profile</code>, otherwise it has no effect. The keywords effect on a resulting JSON Schema is, that it does not add the referenced type as a property, but rather extracts the properties from the referenced type and adds them individually. This can be a useful tool to expand an existing profile or complex type without needing to reference all individual properties again.</p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Extract" src="../../images/extractProps.png" />
+        <figcaption>Extraction of Properties.</figcaption>
+    </figure>
+</center></p>
+<p>As a better explanation consider the following examples of JSON schemas generated from a type. Both types have two properties, a simple  string called <code>TetstStringSecond</code> which is a <code>BasicInfoType</code>, and and <code>InfoType</code> object called <code>testObject</code>, which has as its property the same <code>BasicInfoType</code> called <code>testString</code>. In the first example, we do not extact properties and the object is added as a property to the resulting schema. In the second example, we extract the properties from the <code>InfoType</code> and add them as properties to the resulting schema, so both <code>testString</code> and <code>testStringSecond</code> are on the same level. </p>
+<figure>
+
+<pre class="highlight"><code class="language-json">{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "@id": "21.T11969/cb692fd330999796d709",
+  "additionalProperties": false,
+  "properties": {
+    "testObject": {
+      "@id": "21.T11969/94ab75cda0af87cd2172",
+      "additionalProperties": false,
+      "properties": {
+        "testString": {
+          "@id": "21.T11969/3df63b7acb0522da685d",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "testStringSecond": {
+      "@id": "21.T11969/3df63b7acb0522da685d",
+      "type": "string"
+    }
+  },
+  "title": "extractProperties",
+  "type": "object"
+}</code></pre>
+<center>
+    <figcaption>ExtractProperties = false</figcaption>
+</center>
+</figure>
+<figure>
+
+<pre class="highlight"><code class="language-json">{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "@id": "21.T11969/94ab75cda0af87cd2172",
+  "additionalProperties": false,
+  "properties": {
+    "testString": {
+      "@id": "21.T11969/3df63b7acb0522da685d",
+      "type": "string"
+    },
+    "testStringSecond": {
+      "@id": "21.T11969/3df63b7acb0522da685d",
+      "type": "string"
+    }
+  },
+  "title": "Test",
+  "type": "object"
+}</code></pre>
+<center>
+    <figcaption>ExtractProperties = true</figcaption>
+</center>
+</figure>
+<h2 id="taxonomynodes">TaxonomyNodes</h2>
+<p><code>TaxonomyNodes</code> share all general metadata properties with the other types, but can have a set of <code>Parent Nodes</code> assigned to them, which serve as a way to construct simple hierarchies.</p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Parent Nodes" src="../../images/taxParent.png" />
+        <figcaption>Parent Nodes of Taxonomy Node.</figcaption>
+    </figure>
+</center></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../types/" class="btn btn-neutral float-left" title="The Different Data Types"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../acl/" class="btn btn-neutral float-right" title="Managing Access Control">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../types/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../acl/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
