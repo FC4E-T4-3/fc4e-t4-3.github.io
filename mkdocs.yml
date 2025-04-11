@@ -20,7 +20,6 @@ nav:
     - Schema Generation and Validating Data: creatingTypes/validation.md
   - Tutorials:
     - Cordra API Tutorial: Tutorials/apiIntro.md
-    - Recreating an existing Schema: Tutorials/recreateSchema.md
   - Schemas:
     - Overview: schemas/Overview.md
     - Basic Types: schemas/basictype.md

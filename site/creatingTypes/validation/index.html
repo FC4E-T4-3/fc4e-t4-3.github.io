@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Taxonomy Nodes - Typeregistry Documentation</title>
+    <title>Schema Generation and Validating Data - Typeregistry Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Taxonomy Nodes";
-        var mkdocs_page_input_path = "schemas\\taxonomynode.md";
+        var mkdocs_page_name = "Schema Generation and Validating Data";
+        var mkdocs_page_input_path = "creatingTypes\\validation.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -44,16 +44,18 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Creating Data Types</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../creatingTypes/ui_auth/">Navigation and Authentication</a>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_auth/">Navigation and Authentication</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../creatingTypes/types/">The Different Data Types</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../types/">The Different Data Types</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../creatingTypes/typeCreation/">Type Creation</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../typeCreation/">Type Creation</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../creatingTypes/acl/">Managing Access Control</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../acl/">Managing Access Control</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../creatingTypes/validation/">Schema Generation and Validating Data</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Schema Generation and Validating Data</a>
+    <ul class="current">
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Tutorials</span></p>
@@ -64,20 +66,16 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Schemas</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../Overview/">Overview</a>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/Overview/">Overview</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../basictype/">Basic Types</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/basictype/">Basic Types</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../infotype/">Info Types</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/infotype/">Info Types</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Taxonomy Nodes</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#schema">Schema</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/taxonomynode/">Taxonomy Nodes</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../measurementunit/">Measurement Units</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/measurementunit/">Measurement Units</a>
                   </li>
               </ul>
       </div>
@@ -94,8 +92,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Schemas</li>
-      <li class="breadcrumb-item active">Taxonomy Nodes</li>
+          <li class="breadcrumb-item">Creating Data Types</li>
+      <li class="breadcrumb-item active">Schema Generation and Validating Data</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -104,33 +102,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="taxonomynode">TaxonomyNode</h1>
-<p><code>TaxonomyNodes</code> describe a hierarchical structure of vocabularies. Any other prepared schema type can assigned one or more <code>TaxonomyNodes</code>. Via the <code>TypeAPI</code>, Taxonomies can resolved and all types returned that are somewhere in the subtree of the selected <code>TaxonomyNode</code>.</p>
-<h2 id="schema">Schema</h2>
-<ul>
-<li><em>All fields from the General Schema are included</em> </li>
-<li><b id="#/properties/reference">reference</b><ul>
-<li><em>External reference to the taxonomy node.</em></li>
-<li>Type: <code>string</code></li>
-<li><i id="/properties/reference">path: #/properties/reference</i></li>
-</ul>
-</li>
-<li><b id="#/properties/parents">parents</b><ul>
-<li>Type: <code>array</code></li>
-<li><i id="/properties/parents">path: #/properties/parents</i><ul>
-<li><strong><em>Items</em></strong></li>
-<li><i id="/properties/parents/items">path: #/properties/parents/items</i></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+                <h1 id="schema-generation-and-validating-data">Schema Generation and Validating Data</h1>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../infotype/" class="btn btn-neutral float-left" title="Info Types"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../measurementunit/" class="btn btn-neutral float-right" title="Measurement Units">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../acl/" class="btn btn-neutral float-left" title="Managing Access Control"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../Tutorials/apiIntro/" class="btn btn-neutral float-right" title="Cordra API Tutorial">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -153,10 +131,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../infotype/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../acl/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../measurementunit/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../Tutorials/apiIntro/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

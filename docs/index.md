@@ -1,10 +1,10 @@
-# Home
- 
+        4# Home
+
 ## Get Started
 
 Welcome to the documentation of the data type registry developed in the scope of the FAIRCORE4EOSC project. The Typeregistry is based on the [Cordra](https://www.cordra.org/) software developed by CNRI. Cordra is a software to manage digital objects and equip them with a persistent identifier. These digital objects are represented as JSON objects based on some previously defined JSON schema. In this typeregistry, some schemas are provided to cover many use cases. For more information on the provided schemas, refer to later pages in this documentation. Created types are equipped with a handle PID for unambigous identification of data types. Types can be created via the user interface or an API. For this, Cordra offers a REST API and a DOIP API for HTTP Clients. Documentation for these API's is provided by Cordra and can be found under the `Documentation` tab on the navigation bar. How the most basic operations can be used in the context of the Typeregistry can be found on the next page.
 
-To get started creating types, an account is necessary. As for now, no login via some external AAI provider is integrated in the typeregistry. Rather, a request has to be send for the admin to create an account for you. To request an account, please send a mail to [support@pidconsortium.net](mailto:support@pidconsortium.net). Should you just want to experiment with the provided schemas, we also offer the [DTR-Playground](https://dtr-playground.pidconsortium.eu). Here, the same interface with the same schemas is provided, but no persistent identifiers are generated for the data types and a user account is not required for the type creation. 
+To get started creating types, an account is necessary. Login via some external AAI provider is integrated in the typeregistry, either through the beta release of the EOSC Innovation Sandbox, or the Academic Cloud. Both offer various options for account creation.
 
 ## TypeAPI
 

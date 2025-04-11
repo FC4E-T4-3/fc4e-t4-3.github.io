@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Navigation and Authentication - Typeregistry Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Navigation and Authentication";
+        var mkdocs_page_input_path = "creatingTypes\\ui_auth.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Typeregistry Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Creating Data Types</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Navigation and Authentication</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#authentication">Authentication</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#navigation">Navigation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#queries">Queries</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#all-objects">All Objects</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#query-builder">Query Builder</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#show-only">Show Only</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#types">Types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#resources">Resources</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#type-api">Type API</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cordra-doip-api">Cordra DOIP API</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cordra-rest-api">Cordra REST API</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../types/">The Different Data Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typeCreation/">Type Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../acl/">Managing Access Control</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation/">Schema Generation and Validating Data</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Tutorials/apiIntro/">Cordra API Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../Tutorials/recreateSchema.md">Recreating an existing Schema</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Schemas</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/basictype/">Basic Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/infotype/">Info Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/taxonomynode/">Taxonomy Nodes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../schemas/measurementunit/">Measurement Units</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Typeregistry Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Creating Data Types</li>
+      <li class="breadcrumb-item active">Navigation and Authentication</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="navigation-and-authentication">Navigation and Authentication</h1>
+<p>This section will provide a quick overview of the navigation and authentication features of the Data Type Registry. </p>
+<h2 id="authentication">Authentication</h2>
+<p><center>
+    <figure markdown="span">
+        <img alt="Authentication" src="../../images/auth.png" />
+        <figcaption>The External authentication options</figcaption>
+    </figure>
+</center></p>
+<p>While exploration of registered types is possible without authentication, the ability to create, update and delete types is restricted to authenticated users. Local accounts can be requested via a mail to support@pidconsortium.net, but users also have the ability to authenticate via an external AAI provider. Authentication is possible via the EOSC Innocation Sandbox, which is currently in beta status, or the Academic Cloud, a service portal for Lower Saxony where account creation is possible for everyone. </p>
+<p><center>
+    <figure markdown="span">
+        <img alt="A User ID" src="../../images/id.png" />
+        <figcaption>A User ID</figcaption>
+    </figure>
+</center></p>
+<p>After authentication, your unique User ID will be displayed on the top navigation. This ID will identify you as creator of types, and can be used in managing access control of types.</p>
+<h2 id="navigation">Navigation</h2>
+<p>High level navigation in the DTR is mostly done via the top navigation bar. In the following section, the different options available to users are described. </p>
+<p><center>
+    <figure markdown="span">
+        <img alt="Navigation" src="../../images/navbar.png" />
+        <figcaption>The Navigation Bar</figcaption>
+    </figure>
+</center></p>
+<ul>
+<li>
+<h3 id="queries">Queries</h3>
+<ul>
+<li>
+<h4 id="all-objects">All Objects</h4>
+<p>This displays all types that have been registered in the Data Type Registry, by default sorted by their last modification, so displaying the most recently modified types first. </p>
+</li>
+<li>
+<h4 id="query-builder">Query Builder</h4>
+<p>Although complex queries can be entered in the search bar (refer to the <a href="https://www.cordra.org/documentation/api/search.html">Cordra documentation</a> for the query syntax), the query builder can be used to construct moderately complex queries, using creator, kind of type, and taxonomy nodes as facets just using the UI.</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="show-only">Show Only</h3>
+<p>This option can be used to show all types from a certain kind.</p>
+</li>
+<li>
+<h3 id="types">Types</h3>
+<p>Here users can view the underlying schemas for the different kinds of types.</p>
+</li>
+<li>
+<h3 id="documentation">Documentation</h3>
+<p>Opens this documentation.</p>
+</li>
+<li>
+<h3 id="resources">Resources</h3>
+<ul>
+<li>
+<h4 id="type-api">Type API</h4>
+<p>This shows the Swagger UI page for the TypeAPI, which is an additional service that is provided as part of the Data Type Registry component. For a more in-depth description of the TypeAPI, please refer to the <a href="http://typeapi.lab.pidconsortium.net">TypeAPI Documentation page</a>. </p>
+</li>
+<li>
+<h4 id="cordra-doip-api">Cordra DOIP API</h4>
+<p>Displays how to use the Digital Object Interface Protocol (DOIP) via HTTP to use the Cordra API.</p>
+</li>
+<li>
+<h4 id="cordra-rest-api">Cordra REST API</h4>
+<p>Shows how to use the REST endpoints of the Cordra API.</p>
+</li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../.." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../types/" class="btn btn-neutral float-right" title="The Different Data Types">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../types/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
